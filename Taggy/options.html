@@ -1,0 +1,44 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <style>
+        input {
+          width: 147px;
+        }
+        .Arrow{
+		width: 20px;
+		height: 20px;
+		text-align: left;
+		}
+    .SetTags[type="text"]{
+		width: 15px;
+		height: 15px;
+		}
+
+    #tag {
+      width: 30%;
+    }
+
+      </style>
+    </head>
+    <body>
+      <div>
+          <div class="TagAmount">
+              Amount of saved tags:
+              <button class="Arrow" id="tagM"> < </button>
+              <input type="text" class="SetTags" id="tagAmount" value="0"></input>
+              <button class="Arrow" id="tagP"> > </button>
+            </div>
+
+          <div id="SavedTags">
+				
+            </div>
+
+          <input type="text" placeholder="Sheet ID" id="ID"></input>
+          <button id="save">Save</button> <br />
+          <button id="setupSheet">Setup sheet</button>
+
+      </div>
+    </body>
+    <script src="options.js"></script>
+  </html>

@@ -1,0 +1,99 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <style>
+		  
+		input {
+		  border: 1px solid transparent;
+		  background-color: #f1f1f1;
+		  padding: 10px;
+		  padding-right: 0px;
+		  font-size: 16px;
+		}
+		input[type=text] {
+		  background-color: #f1f1f1;
+		  width: 100%;
+		}
+
+        .Submit {
+          height: 30px;
+          width: 100%;
+          outline: none;
+        }
+		
+		.SetTags{
+		width: 45px;
+		height: 25px;
+		}
+		.SetTags[type="text"]{
+		width: 15px;
+		height: 15px;
+		}
+		
+		.TagAmount{
+		margin: auto;
+  		width: 80%;
+		}
+
+		.Arrow{
+		width: 20px;
+		height: 20px;
+		text-align: left;
+		}
+
+		.Tags{
+		width: 50px;
+		height: 20px;
+		}
+
+		.tag{
+			width: 22%;
+			margin: 3px;
+		}
+
+		#AllTags{
+			margin: auto;
+			padding: 10px;
+		}
+
+		select{
+		text-align: center;
+		width: 40%;
+		}
+		
+		form {
+		height: auto;
+		width: 350px;
+		}
+		
+		#selection{
+		height: 35px;
+ 		width:	16px;
+		}
+
+		#selection option{
+ 		 width:100px;   
+		}
+
+	  </style>
+	  <script src="popup.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+	<form id="tag_form">
+		<div class="TagAmount">
+			Amount of tags:
+			<button class="Arrow" id="tagM"> < </button>
+			<input type="text" class="SetTags" id="tagAmount" value="1"></input>
+			<button class="Arrow" id="tagP"> > </button>
+		</div>
+
+		<div id="AllTags">
+
+		</div>
+	</form>
+	<button class="Submit" id="submit">Add bookmark</button>
+	<button class="Submit" id="options">Options</button>
+    </body>
+  </html>

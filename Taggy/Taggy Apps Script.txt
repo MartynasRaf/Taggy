@@ -1,0 +1,91 @@
+
+function doGet(e) { // change to doPost(e) if you are recieving POST data
+  
+  var ss = SpreadsheetApp.openById(e.parameter.Sid); //"157zzBLcwfFlbPhNmc2eeu5CgAXNnqoWEXtC3fxyXjzI" e.parameter.Sid
+  var sheet = ss.getSheets()[0];
+  var total= sheet.getRange(1,9);
+  
+  if (e.parameter.type == "1"){
+  Setup(sheet);
+  return;
+  }
+  
+
+  var headers = sheet.getRange(1, 1, 1, 5).getValues()[0]; //read headers
+  var nextRow = sheet.getLastRow(); // get next row
+  var cell = sheet.getRange('a1');
+  var col = 0; //response1.getSheets ().get (0).getProperties ().getTitle ()
+      
+  //var id=Math.floor(Math.random() * 1000000000);
+  var time = new Date();
+  
+  var id = time.getTime();
+  
+  for (i in headers){ // loop through the headers and if a parameter name matches the header name insert the value
+    if (headers[i] == "Timestamp"){
+      val = time;
+    } else if(headers[i] == "Id"){
+    val=id;
+    } else {
+      if (e.parameter[headers[i]]==undefined){ 
+        val=""
+      } else {
+      val = e.parameter[headers[i]]; 
+      }
+    }
+    cell.offset(nextRow, col).setValue(val);
+    col++;
+  }
+  
+  Renumber(sheet,total);
+  
+}
+
+function Renumber(sheet,t){
+  
+  var cell= sheet.getRange(t.getValue()+2, 1).setValue(t.getValue()+1);
+  
+  t.setValue(t.getValue()+1);
+  
+}
+
+
+function RenumberNew(sheet,t){
+
+  var ss = SpreadsheetApp.openById("157zzBLcwfFlbPhNmc2eeu5CgAXNnqoWEXtC3fxyXjzI"); //"157zzBLcwfFlbPhNmc2eeu5CgAXNnqoWEXtC3fxyXjzI" e.parameter.Sid
+  var sheet = ss.getSheetByName("DATA");
+  
+  t=sheet.getRange(1,9).getValue();
+  
+  sheet.getRange(2,1).setValue(t);
+
+  
+  for (i=1;i<=t;i++){
+  sheet.getRange(i+1,1).setValue(i);  
+  }
+  
+
+}
+
+function SortByTag(){
+
+  
+  
+  
+}
+
+
+function Setup(sheet){
+
+  sheet.getRange(1,1).setValue("No"); //No	Website	Tag	Id	Timestamp			Total:	7
+  sheet.getRange(1,2).setValue("Website");
+  sheet.getRange(1,3).setValue("Tag");
+  sheet.getRange(1,4).setValue("Id");
+  sheet.getRange(1,5).setValue("Timestamp");
+  sheet.getRange(1,8).setValue("Total:");
+}
+
+
+
+
+
