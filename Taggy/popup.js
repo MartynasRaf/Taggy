@@ -2,9 +2,7 @@
  presetTagAmount= 0;
  let web;
  let tag;
-//let id;
  url="https://script.google.com/macros/s/AKfycbzH-edn_DYhOtVJuHrCC8GAKGDU5I4ujlYDzHiiSwqjfVR4zvo/exec?";
-//https://script.google.com/macros/s/AKfycbzTPn3O-rSgrk-yRSTl5mrnhx_iftEMvQAGFarK4LiJ82JNK5e-/exec
 
 chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
     web = tabs[0].url;
@@ -15,10 +13,6 @@ chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 
 function clickHandler(e) {
     chrome.runtime.sendMessage({directive: "popup-click"}, function(response) {
-
-   // var e = document.getElementById("tagSelection");
-  //  var tag = e.options[e.selectedIndex].text;
-      //sheetID: 157zzBLcwfFlbPhNmc2eeu5CgAXNnqoWEXtC3fxyXjzI
 
   var childDivs = document.getElementById('AllTags').getElementsByTagName('input');
 
@@ -62,16 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
       updateTagAmount(result.b);
      });
     });
-
-
-
-     
-
-    
-
-   // for (i=0;i<8;i++){
-  //  document.getElementsByName('tags')[0].options[i].innerHTML = tagList[i];
-  //  }
 
 })
 
@@ -201,7 +185,7 @@ function GenerateTags(e){
 
 
 // -----------------------------------------------------------------------------
-// Crazy comment section below.
+// Additional notes below
 
 
 
